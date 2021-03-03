@@ -3211,7 +3211,7 @@ QHeaderView::section:vertical
                       <string notr="true">color: rgb(98, 103, 111);</string>
                      </property>
                      <property name="text">
-                      <string>v1.0.0</string>
+                      <string>v2.0.0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
