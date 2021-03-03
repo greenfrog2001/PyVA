@@ -191,12 +191,12 @@ class MainWindow(QMainWindow):
             self.ui.mediaPlayer.play()
             
         if self.sender().objectName() == "youtube_search_btn":
-            print("YT search works!")
             query = self.ui.youtube_search_input.text()
-            url = Functions.GetYouTubeLink(query)
-            if Functions.MediaCheck():
-                Functions.StopVideo()
-            Functions.VLCPlay(url)
+            if query:
+                url = Functions.GetYouTubeLink(query)
+                if Functions.MediaCheck():
+                    Functions.StopVideo()
+                Functions.VLCPlay(url)
             
         if self.sender().objectName() == "youtube_pause":
             Functions.PauseVideo()
@@ -235,53 +235,56 @@ class MainWindow(QMainWindow):
             
         if self.sender().objectName() == "translate_btn":
             src_text_input = self.ui.src_text.toPlainText()
-            src_language = self.ui.src_box.currentText().lower()
-            dest_language = self.ui.dest_box.currentText().lower()
-            dest = LANGCODES[dest_language]
+            if src_text_input:
+                src_language = self.ui.src_box.currentText().lower()
+                dest_language = self.ui.dest_box.currentText().lower()
+                dest = LANGCODES[dest_language]
 
-            if src_language == 'auto detect':
-                dest_text_output = Functions.Translate(src_text_input, src_language, dest)
-            else:
-                src = LANGCODES[src_language]
-                dest_text_output = Functions.Translate(src_text_input, src, dest)
-            self.ui.dest_text.setText(dest_text_output)
+                if src_language == 'auto detect':
+                    dest_text_output = Functions.Translate(src_text_input, src_language, dest)
+                else:
+                    src = LANGCODES[src_language]
+                    dest_text_output = Functions.Translate(src_text_input, src, dest)
+                self.ui.dest_text.setText(dest_text_output)
             
         if self.sender().objectName() == "src_sound":
             src_text_input = self.ui.src_text.toPlainText()
-            src_language = self.ui.src_box.currentText().lower()
-            dest_language = self.ui.dest_box.currentText().lower()
-            dest = LANGCODES[dest_language]
+            if src_text_input:
+                src_language = self.ui.src_box.currentText().lower()
+                dest_language = self.ui.dest_box.currentText().lower()
+                dest = LANGCODES[dest_language]
 
-            if src_language == 'auto detect':
-                if os.path.exists('gtts_obj.mp3'):
-                    os.remove('gtts_obj.mp3')
-                gtts_obj = gTTS(src_text_input, lang='en')
-                gtts_obj.save('gtts_obj.mp3')
-                url = QtCore.QUrl.fromLocalFile('gtts_obj.mp3')
-            else:
-                src = LANGCODES[src_language]
-                if os.path.exists('gtts_obj.mp3'):
-                    os.remove('gtts_obj.mp3')
-                gtts_obj = gTTS(src_text_input, lang=src)
-                gtts_obj.save('gtts_obj.mp3')
-                url = QtCore.QUrl.fromLocalFile('gtts_obj.mp3')
-            self.ui.mediaPlayer = QtMultimedia.QMediaPlayer(self)
-            self.ui.mediaPlayer.setMedia(QtMultimedia.QMediaContent(url))
-            self.ui.mediaPlayer.play()
+                if src_language == 'auto detect':
+                    if os.path.exists('gtts_obj.mp3'):
+                        os.remove('gtts_obj.mp3')
+                    gtts_obj = gTTS(src_text_input, lang='en')
+                    gtts_obj.save('gtts_obj.mp3')
+                    url = QtCore.QUrl.fromLocalFile('gtts_obj.mp3')
+                else:
+                    src = LANGCODES[src_language]
+                    if os.path.exists('gtts_obj.mp3'):
+                        os.remove('gtts_obj.mp3')
+                    gtts_obj = gTTS(src_text_input, lang=src)
+                    gtts_obj.save('gtts_obj.mp3')
+                    url = QtCore.QUrl.fromLocalFile('gtts_obj.mp3')
+                self.ui.mediaPlayer = QtMultimedia.QMediaPlayer(self)
+                self.ui.mediaPlayer.setMedia(QtMultimedia.QMediaContent(url))
+                self.ui.mediaPlayer.play()
             
         if self.sender().objectName() == "dest_sound":
             dest_text_input = self.ui.dest_text.toPlainText()
-            dest_language = self.ui.dest_box.currentText().lower()
-            dest = LANGCODES[dest_language]
+            if dest_text_input:
+                dest_language = self.ui.dest_box.currentText().lower()
+                dest = LANGCODES[dest_language]
 
-            if os.path.exists('gtts_obj.mp3'):
-                os.remove('gtts_obj.mp3')
-            gtts_obj = gTTS(dest_text_input, lang=dest)
-            gtts_obj.save('gtts_obj.mp3')
-            url = QtCore.QUrl.fromLocalFile('gtts_obj.mp3')
-            self.ui.mediaPlayer = QtMultimedia.QMediaPlayer(self)
-            self.ui.mediaPlayer.setMedia(QtMultimedia.QMediaContent(url))
-            self.ui.mediaPlayer.play()
+                if os.path.exists('gtts_obj.mp3'):
+                    os.remove('gtts_obj.mp3')
+                gtts_obj = gTTS(dest_text_input, lang=dest)
+                gtts_obj.save('gtts_obj.mp3')
+                url = QtCore.QUrl.fromLocalFile('gtts_obj.mp3')
+                self.ui.mediaPlayer = QtMultimedia.QMediaPlayer(self)
+                self.ui.mediaPlayer.setMedia(QtMultimedia.QMediaContent(url))
+                self.ui.mediaPlayer.play()
 
 
 
