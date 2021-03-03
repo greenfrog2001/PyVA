@@ -10,8 +10,6 @@ import vlc
 import sys
 import wikipedia
 import wolframalpha
-# youtube-dl
-# pip install python-vlc
 
 class Functions(MainWindow):
     def GetAnswer(query):
