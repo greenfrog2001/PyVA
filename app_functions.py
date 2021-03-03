@@ -23,7 +23,16 @@ class Functions(MainWindow):
                 client = wolframalpha.Client(app_id)
 
                 res = client.query(query)
-                answer = next(res.results).text
+
+                answer = ''
+                for pod in res.pods:
+                    if pod.title in ["Solution", "Solutions", "Real solution", "Real solutions", "Complex solutions", "Result"] :
+                        answer += pod.title
+                        answer += ':\n'
+                        for sub in pod.subpods:
+                            answer += sub.plaintext
+                            answer += '\n'
+                # answer = next(res.results).text
 
             except:
                 # WIKIPEDIA
@@ -40,7 +49,14 @@ class Functions(MainWindow):
                 client = wolframalpha.Client(app_id)
 
                 res = client.query(query)
-                answer = next(res.results).text
+                answer = ''
+                for pod in res.pods:
+                    if pod.title in ["Solution", "Solutions", "Real solution", "Real solutions", "Complex solutions", "Result"] :
+                        answer += pod.title
+                        answer += ':\n'
+                        for sub in pod.subpods:
+                            answer += sub.plaintext
+                            answer += '\n'
 
             except:
                 # WIKIPEDIA
