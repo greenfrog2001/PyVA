@@ -3,7 +3,7 @@ Python Virtual Assistant
 
 ## Installation
 1. Install libraries
-   In command-line or terminal, run:
+   In command-line or terminal, run the following command:\
    `pip install -r requirements.txt`
 
 2. Run script\
