@@ -11,13 +11,13 @@ Python Virtual Assistant
    `python main.py`
 
 ## Feature
-1. Get information about whatever you want to know about.\
-   
-2. Do maths!\
+1. Get information about whatever you want to know about.
   
-3. Play video from Youtube.\
+2. Do maths!
+  
+3. Play video from Youtube.
    
-4. Translate.\
+4. Translate.
  
 5. Return answer with both texts and sounds.
 
