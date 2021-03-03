@@ -181,6 +181,7 @@ class MainWindow(QMainWindow):
         if self.sender().objectName() == "search_btn":
             query = self.ui.user_input.text()
             self.ui.answer_output.setText(Functions.GetAnswer(query))
+            
         if self.sender().objectName() == "sound_btn":
             query = self.ui.user_input.text()
             self.ui.answer_output.setText(Functions.GetAnswer(query))
@@ -188,6 +189,7 @@ class MainWindow(QMainWindow):
             self.ui.mediaPlayer = QtMultimedia.QMediaPlayer(self)
             self.ui.mediaPlayer.setMedia(QtMultimedia.QMediaContent(url))
             self.ui.mediaPlayer.play()
+            
         if self.sender().objectName() == "youtube_search_btn":
             print("YT search works!")
             query = self.ui.youtube_search_input.text()
@@ -195,6 +197,7 @@ class MainWindow(QMainWindow):
             if Functions.MediaCheck():
                 Functions.StopVideo()
             Functions.VLCPlay(url)
+            
         if self.sender().objectName() == "youtube_pause":
             Functions.PauseVideo()
             if (self.pause_count % 2 == 0):
@@ -226,8 +229,10 @@ class MainWindow(QMainWindow):
             "	background-color: rgb(85, 170, 255);\n"
             "}")
             self.pause_count += 1
+            
         if self.sender().objectName() == "youtube_stop":
             Functions.StopVideo()
+            
         if self.sender().objectName() == "translate_btn":
             src_text_input = self.ui.src_text.toPlainText()
             src_language = self.ui.src_box.currentText().lower()
@@ -240,6 +245,7 @@ class MainWindow(QMainWindow):
                 src = LANGCODES[src_language]
                 dest_text_output = Functions.Translate(src_text_input, src, dest)
             self.ui.dest_text.setText(dest_text_output)
+            
         if self.sender().objectName() == "src_sound":
             src_text_input = self.ui.src_text.toPlainText()
             src_language = self.ui.src_box.currentText().lower()
@@ -262,6 +268,7 @@ class MainWindow(QMainWindow):
             self.ui.mediaPlayer = QtMultimedia.QMediaPlayer(self)
             self.ui.mediaPlayer.setMedia(QtMultimedia.QMediaContent(url))
             self.ui.mediaPlayer.play()
+            
         if self.sender().objectName() == "dest_sound":
             dest_text_input = self.ui.dest_text.toPlainText()
             dest_language = self.ui.dest_box.currentText().lower()
