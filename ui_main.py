@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEMuBKde.ui'
+## Form generated from reading UI file 'GUI_BASEusrvFh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1665,6 +1665,6 @@ class Ui_MainWindow(object):
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
         self.label_credits.setText("")
-        self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
+        self.label_version.setText(QCoreApplication.translate("MainWindow", u"v2.0.0", None))
     # retranslateUi
 
