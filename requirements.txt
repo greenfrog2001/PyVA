@@ -1,0 +1,11 @@
+gtts==2.2.1
+googletrans==3.1.0a0
+pafy==0.5.5
+PyQt5==5.15.2
+PySide2==5.15.2
+pyqt5-tools==5.15.2.3.0.2
+python-vlc==3.0.11115
+youtube-dl==2021.2.4.1
+youtube-search==1.1.1
+wikipedia==1.4.0
+wolframalpha==4.1.1
