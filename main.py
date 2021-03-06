@@ -138,6 +138,8 @@ class MainWindow(QMainWindow):
             btnWidget.setStyleSheet(UIFunctions.selectMenu(btnWidget.styleSheet()))
 
 
+    ## EVENT ==> KEY PRESS 
+
     ## EVENT ==> BUTTON CLICK
     def btn_clicked(self):
         if self.sender().objectName() == "search_btn":
