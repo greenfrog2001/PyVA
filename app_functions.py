@@ -21,16 +21,18 @@ class Functions(MainWindow):
                 client = wolframalpha.Client(app_id)
 
                 res = client.query(query)
-
                 answer = ''
                 for pod in res.pods:
-                    if pod.title in ["Solution", "Solutions", "Real solution", "Real solutions", "Complex solutions", "Result"] :
+                    # Need replacing the title list with titles in wolframalpha
+                    if pod.title in ["Solution", "Solutions", "Real solution", "Real solutions", "Complex solutions", "Result",
+                    "Integer solution", "Numerical solutions"] :
                         answer += pod.title
                         answer += ':\n'
                         for sub in pod.subpods:
                             answer += sub.plaintext
                             answer += '\n'
-                # answer = next(res.results).text
+                if not answer:
+                    raise SyntaxError
 
             except:
                 # WIKIPEDIA
