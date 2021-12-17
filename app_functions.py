@@ -32,7 +32,7 @@ class Functions(MainWindow):
                             answer += sub.plaintext
                             answer += '\n'
                 if not answer:
-                    raise SyntaxError
+                    raise ValueError
 
             except:
                 # WIKIPEDIA
